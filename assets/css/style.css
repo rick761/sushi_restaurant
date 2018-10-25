@@ -1,0 +1,154 @@
+body, html
+{
+  overflow: auto !important;
+  font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+}
+
+nav
+{
+  display: block;
+  height: 80px;
+  background-color: #F2F2F2;
+  text-align: center;
+}
+
+.nav
+{
+  width: 10%;
+  height: 74px;
+  background-color: #F2F2F2;
+  transition: 300ms;
+  color: black;
+  text-align: center;
+  padding-top: 6px;
+  margin: 0;
+  display: inline-block;
+}
+
+.nav:hover
+{
+  transition: 300ms;
+  background-color: black;
+  color: white;
+}
+
+#page1
+{
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  position: relative;
+}
+
+#text1
+{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+#text1 > h1
+{
+  margin: 0;
+  margin-top: 15%;
+  padding: 0;
+  font-size: 4em;
+  color: white;
+  z-index: 2;
+}
+
+#text1 > p
+{
+  margin: 0;
+  margin-top: 20px;
+  padding: 0;
+  font-size: 1.5em;
+  color: white;
+  z-index: 2;
+}
+
+#down
+{
+  margin-top: 18%;
+  padding: 0;
+  width: 5%;
+}
+
+#bg
+{
+  width: 100%;
+
+}
+
+#page2
+{
+  width: 100%;
+  background-color: white;
+  position: relative;
+}
+
+.vak
+{
+  color: white;
+  border-radius: 6px;
+  width: 20%;
+  height: 300px;
+  vertical-align: top;
+  text-align: justify;
+  line-height: 23px;
+  display: inline-block;
+  padding: 1%;
+  margin-top: 60px;
+  margin-left: 8%;
+}
+
+.vak:hover
+{
+  height: auto;
+}
+
+#vak1
+{
+  background-color: #1e8bc3;
+}
+
+#vak2
+{
+  background-color: #f86923;
+}
+
+#vak3
+{
+  background-color: #ff9f00;
+}
+
+#vak4
+{
+  background-color: #1e8bc3;
+  margin-bottom: 60px;
+}
+
+.icon
+{
+  width: 100px;
+  position: relative;
+}
+
+a-scene
+{
+  position: relative;
+}
+
+.a-canvas
+{
+  position: relative !important;
+}
+
+@media (max-width:800px)
+{
+  nav, .nav, #page1, #text1, h1, p, #down, #bg, #page2, .vak, #vak1, #vak2, #vak3, #vak4, .icon
+  {
+    display:none;
+  }
+}

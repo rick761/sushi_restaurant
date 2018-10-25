@@ -1,0 +1,479 @@
+<html>
+	<head>
+		<title>PROTOTYPE 3.0</title>
+		<meta charset="UTF-8">
+		<script src="https://aframe.io/releases/0.4.0/aframe.min.js"></script>
+		<script src="https://unpkg.com/aframe-text-component@0.4.x/dist/aframe-text-component.min.js"></script>
+		<script src='./assets/js/jquery-3.1.1.min.js'></script>
+		<script src="./assets/js/main.js"></script>
+		<script src="./assets/js/mesModel.js"></script>
+		<script src="./assets/js/cameraModel.js"></script>
+		<script src="./assets/js/snijModel.js"></script>
+		<script src="./assets/js/sushiModel.js"></script>
+		<script src="./assets/js/eindProductModel.js"></script>
+		<script src="./assets/js/textModel.js"></script>
+		<link rel="stylesheet" href="assets/css/style.css">
+	</head>
+	<body>
+		<div id="page1" style="background-image: url('assets/img/sushi2.jpg');">
+			<nav>
+				<a href="#page1"><div class="nav"><h2>Home</h2></div></a>
+				<a href="#page2"><div class="nav"><h2>Over</h2></div></a>
+				<a href="#page3"><div class="nav"><h2>VR</h2></div></a>
+			</nav>
+			<div id="text1">
+				<h1>Sushi World</h1>
+				<p>Scroll naar beneden voor de virtual reality experience</p>
+				<a href="#page2"><img id="down" src="assets/img/down.png" alt="down"/></a>
+			</div>
+		</div>
+
+		<div id="page2">
+			<div class="vak" id="vak1">
+				<img class="icon" src="assets/img/help.png" alt="Wat"/>
+				<h1>Wat</h1>
+				<p>Op deze website kan de bezoeker door middel van virtual reality website sushi leren maken. De website is zowel op desktop als mobiel te gebruiken, echter is de ervaring op de mobiel het best.</p>
+			</div>
+
+			<div class="vak" id="vak2">
+				<img class="icon" src="assets/img/roll.png" alt="Waarom"/>
+				<h1>Waarom</h1>
+				<p>Er is een trend gaande dat steeds meer mensen sushi buiten de deur eten. Maar weten mensen eigenlijk hoe sushi gemaakt wordt en hoeveel calorien het bevat? Dit was voor ons de basis om de website te maken. Door het gebruik van virtual reality denken wij dat de gebruiker snel door heeft hoe sushi gemaakt wordt en zou het zelf gemakkelijk thuis kunnen doen.</p>
+			</div>
+
+			<div class="vak" id="vak3">
+				<img class="icon" src="assets/img/howto.png" alt="Uitleg"/>
+				<h1>Uitleg</h1>
+				<p>Door naar onder te scrollen komt de virtual reality omgeving naar boven. In deze omgeving kan stap voor stap sushi gemaakt worden. Om je heen staan drie tafels. Op de linker tafel is een mes, rijst en zeewier te vinden. Deze ingredienten zijn de basis voor iedere sushi en het mes kan gebruikt worden om de ingredienten op de middelste tafel te snijden. Daar liggen zalm, tonijn, komkommer en avocado. Op de rechter tafel kan de sushi in elkaar gezet worden.</p>
+			</div>
+		</div>
+
+		<a-scene id="page3">
+			<a-assets>
+				<a-asset-item id="tafel-obj" src="assets/obj/tafel2.obj"> </a-asset-item>
+				<a-asset-item id="tafel-mtl" src="assets/obj/tafel2.mtl"> </a-asset-item>
+				<a-asset-item id="avocado-obj" src="assets/obj/avocado.obj"> </a-asset-item>
+				<a-asset-item id="avocado-mtl" src="assets/obj/avocado.mtl"> </a-asset-item>
+				
+				<audio id="slice" src="assets/sound/slice.mp3" preload="auto">	
+				<audio id="mesbloksnd" src="assets/sound/mesblok.wav" preload="auto">
+				<audio id="wrk_snd" src="assets/sound/Construction01.wav" preload="auto">
+				
+				
+				<a-mixin id="gray" material="color: gray"> </a-mixin>
+				<a-mixin id="green" material="color: green"> </a-mixin>
+				<a-mixin id="cube" geometry="height: 1; width: 1; depth: 1;"> </a-mixin>
+				<a-mixin id="bord" geometry="height: 12; width: 30; depth: 0.1;"> </a-mixin>
+				<a-mixin id="wall" geometry="primitive: plane; height: 1; width: 1" material="repeat:1 1"> </a-mixin>
+				<a-mixin id="buis" geometry="primitive: cylinder; radius: 1; height: 1"> </a-mixin>
+				<a-mixin id="bal" geometry="primitive:sphere;radius:0.3;segmentsWidth:5;segmentsHeight:5" rotation="3.4 -0.57 98" scale="1.1 1 1"> </a-mixin>
+
+				<img id='vloerkleed_1' src='./assets/img/pattern_floor.jpg'/>
+				<img id='muur_1' src='./assets/img/pattern_wall.jpg'/>
+				<img id='plafond' src='./assets/img/plafond.jpg'/>
+				<img id='sky' src='./assets/img/pattern_sky.jpg'/>
+				<img id='painting_3' src='./assets/img/schilderij_3.jpg'/>
+				<img id='painting_4' src='./assets/img/schilderij_4.jpg'/>
+				<img id='gras' src='./assets/img/pattern_grass.jpg'/>
+				<img id='wood_1' src='./assets/img/pattern_wood.jpg'/>
+				<img id='wood_2' src='./assets/img/pattern_wood2.jpg'/>
+				<img id='wood_3' src='./assets/img/pattern_wood3.jpg'/>
+				<img id='zalm' src='./assets/img/pattern_salmon.jpg'/>
+				<img id='tonijn' src='./assets/img/pattern_tuna.jpg'/>
+				<img id='avocado_img' src='./assets/img/pattern_avocado.jpg'/>
+				<img id='komkommer_img' src='./assets/img/pattern_komkommer.jpg'/>
+				<img id='zalm_img' src='./assets/img/pattern_salmon.jpg'/>
+				<img id='tonijn_img' src='./assets/img/pattern_tuna.jpg'/>
+				<img id='rice' src='./assets/img/rice.jpg'/>
+				<img id='rieten_matje' src='./assets/img/rieten_matje.jpg'/>
+				<img id='prul' src='./assets/img/trash.jpg'/>
+				<img id='nori' src='./assets/img/nori.jpg'/>
+
+				<img id='welkom' src='./assets/img/welkom.jpg' />
+				<img id='mes_gepakt' src='./assets/img/mes_gepakt.jpg' />
+				<img id='rijst_gepakt' src='./assets/img/rijst_gepakt.jpg' />
+				<img id='zalm_gepakt' src='./assets/img/zalm_gepakt.jpg' />
+				<img id='tonijn_gepakt' src='./assets/img/tonijn_gepakt.jpg' />
+				<img id='komkommer_gepakt' src='./assets/img/komkommer_gepakt.jpg' />
+				<img id='avocado_gepakt' src='./assets/img/avocado_gepakt.jpg' />
+				<img id='zeewier_gepakt' src='./assets/img/zeewier_gepakt.jpg' />
+				<img id='object_geplaatst' src='./assets/img/object_geplaatst.jpg' />
+				<img id='mes_geplaatst' src='./assets/img/mes_geplaatst.jpg' />
+				<img id='sushi_gerold' src='./assets/img/sushi_gerold.jpg' />
+				<img id='sushi_is_gesneden' src='./assets/img/sushi_is_gesneden.jpg' />
+				<img id='zalm_is_gesneden' src='./assets/img/zalm_is_gesneden.jpg' />
+				<img id='tonijn_is_gesneden' src='./assets/img/tonijn_is_gesneden.jpg' />
+				<img id='komkommer_is_gesneden' src='./assets/img/komkommer_is_gesneden.jpg' />
+				<img id='avocado_is_gesneden' src='./assets/img/avocado_is_gesneden.jpg' />
+				<img id='ingredient_toegevoegd' src='./assets/img/ingredient_toegevoegd.jpg' />
+				<img id='object_weggeggooit' src='./assets/img/object_weggegooid.jpg' />
+			</a-assets>
+
+			<a-entity id="camera" camera="userHeight: 5.6" look-controls wasd-controls="" position="0 0 0">
+				 <a-entity id='fuse_animation' position="0 0 -3"
+							geometry="primitive: ring; radiusOuter: 0.06;
+                            radiusInner: 0.05;"
+							material="color: cyan; shader: flat"
+							cursor="fuseTimeout:600; fuse: true">
+					
+				</a-entity>
+
+				<a-entity id="cam_knife" visible='false' scale="0.5 0.5 0.5" position="0.6 -1.78 -2.24" rotation="0 0 0">
+					<a-entity id="handel" material="src: #wood_1" mixin="buis" geometry="radius: 0.2" position="0 2.19 2.26" rotation="90 0 0" scale="1 2 1"> </a-entity>
+					<a-entity id="blade" mixin="gray cube" position="0 2.01 0" scale="0.1 0.8 4"> </a-entity>
+					<a-entity id="sharp_pt1" mixin="gray buis" geometry="width: 01; height: 0.1; depth: 0.57; radius: 0.3" position="0 1.97 -1.95" rotation="90 90 0" scale="2 1 1.2"> </a-entity>
+					<a-entity id="sharp_pt2" mixin="gray cube" position="0 2.21 -1.9" scale="0.1 0.4 1"> </a-entity>
+					<a-entity id="sharp_pt3" mixin="gray cube" position="0 2.07 -2.4" scale="0.1 0.48 0.48" rotation="45 0 0"> </a-entity>
+				</a-entity>
+
+				<a-entity id="cam_zalm" visible="false" mixin="cube" material="src: #zalm" position="0.56 -0.35 -1.31" scale="0.2 0.12 0.5"> </a-entity>
+				<a-entity id="cam_tuna" visible="false" mixin="cube" material="src: #tonijn" position="0.56 -0.35 -1.31" scale="0.2 0.12 0.5"> </a-entity>
+				<a-entity id="cam_komkommer" visible="false" mixin="cube" material="src: #komkommer_img" position="0.56 -0.35 -1.31" scale="0.2 0.12 0.5"> </a-entity>
+				<a-entity id="cam_rijst" visible="false" mixin="cube" material="src: #rice" position="0.56 -0.35 -1.31" scale="0.2 0.12 0.5"> </a-entity>
+				<a-entity id="cam_zeewier" visible="false" mixin="cube" material="src: #nori" position="0.56 -0.35 -1.31" scale="0.8 0.01 0.86" rotation="0 27.380000000000003 0"> </a-entity>
+
+				<a-entity id="cam_avocado" visible='false' position="0.56 -1 -1.31" scale="0.3 0.3 0.3">
+					<a-cone color="silver" material="side:front" geometry="primitive:cone;radiusTop:1;radiusBottom:0.5" position="0.72 1.31 -0.56"></a-cone>
+					<a-torus color="silver" material="side:front" geometry="primitive:torus;radiusTop:1;radiusBottom:0.5;radius:0.91;radiusTubular:0.05" position="0.72 1.84 -0.56" rotation="90 0 0" scale="1 1 1" visible="true"></a-torus>
+					<a-ring src="#avocado_img" material="" geometry="primitive:ring;segmentsPhi:10;segmentsTheta:20;radiusInner:0.001;radiusOuter:0.8" position="0.72 1.86 -0.57" rotation="-90 0 0"></a-ring>
+				</a-entity>
+			</a-entity>
+
+			<a-sky material="repeat: 10 10; src: #sky"></a-sky>
+
+			<!--API-->
+			<a-entity mixin="bord" position="17.4 8 -2" rotation="0 90 0" material="src: #wood_1" scale="0.5 0.4 0.4"> </a-entity>
+			<a-entity id="product" text="text: Product:" position="17.3 8 -7" scale="1 1 1" rotation="0 -90 0" material="color: white"> </a-entity>
+			<a-entity id="carbs" text="text: Calorien:" position="17.3 7 -7" scale="1 1 1" rotation="0 -90 0" material="color: white"> </a-entity>
+
+
+			<!-- Default Stuff -->
+			<a-entity id='environment'>
+				<a-entity mixin="wall" material="repeat: 35 35; src: #vloerkleed_1" position="0.36 0 0" rotation="-90 0 0" scale="35 35 1"> </a-entity>
+				<a-entity mixin="wall" material="repeat: 35 35; src: #gras" position="0 -0.13 0" rotation="-90 0 0" scale="150 150 1"> </a-entity>
+				<a-entity mixin="wall" material="repeat: 2 2; src: #muur_1" position="0.37 6 -17.48" scale="35 20 1"> </a-entity>
+				<a-entity mixin="wall" material="src: #muur_1" position="-14.26 -1.23 17.51" rotation="0 180 0" scale="17.5 10 1"> </a-entity>
+				<a-entity mixin="wall" material="src: #muur_1" position="9.08 -1.23 17.51" rotation="0 180 0" scale="17.5 10 1"> </a-entity>
+				<a-entity mixin="wall" material="repeat: 0.75 0.75; src: #muur_1" position="-16.33 7.31 17.51" rotation="0 180 0" scale="13 7.5 1"> </a-entity>
+				<a-entity mixin="wall" material="repeat: 0.25 0.75; src: #muur_1" position="15.68 7.31 17.51" rotation="0 180 0" scale="4.2 7.5 1"> </a-entity>
+				<a-entity mixin="wall" material="repeat: 2 0.5; src: #muur_1" position="0.36 13.54 17.51" rotation="0 180 0" scale="35 5 1"> </a-entity>
+				<a-entity mixin="wall" material="repeat: 2 4; src: #muur_1" position="17.71 19.7 -0.01" rotation="0 -90 0" scale="35 40 1"> </a-entity>
+				<a-entity mixin="wall" material="repeat: 2 4; src: #muur_1" position="-17.07 20.04 -0.01" rotation="0 90 0" scale="35 40 1"> </a-entity>
+				<a-entity mixin="wall" material="repeat: 2 2.5; src: #plafond" position="0.38 25.54 -7.97" rotation="45 0 0" scale="35 30 1"> </a-entity>
+				<a-entity mixin="wall" material="repeat: 2 2.5; src: #plafond" position="0.38 25.54 7.73" rotation="45 180 0" scale="35 30 1"> </a-entity>
+				<a-torus-knot color="#B84A39" arc="180" p="2" q="7" radius="5" radius-tubular="0.1" material="color:#B84A39" geometry="primitive:torusKnot;p:2;q:7;radius:5;radiusTubular:0.1" position="1.09 24.43 0.06" rotation="90 0 0"></a-torus-knot>
+		   </a-entity>
+
+			 <a-entity id="schilderijen">
+  				<a-entity mixin="wall" material="src: #painting_3" position="-17.05 10.86 -6.57" scale="9 6 1" rotation="0 90 0"> </a-entity>
+  				<a-entity mixin="wall" material="src: #painting_4" position="-17.05 10.86 6.59" scale="9 6 1" rotation="0 90 0"> </a-entity>
+  			</a-entity>
+
+ 			<a-entity id="deur_en_raam" position="0 0 17.52">
+ 				<a-entity mixin="cube" material="repeat: 0 1; src: #wood_1" position="7.21 3.92 0" scale="13 1 1"> </a-entity>
+ 				<a-entity mixin="cube" material="repeat: 1 0; src: #wood_1" position="-10.1 5.1 0" scale="1 12 1"> </a-entity>
+ 				<a-entity mixin="cube" material="repeat: 1 0; src: #wood_1" position="13.29 5.1 0" scale="1 12 1"> </a-entity>
+ 				<a-entity mixin="cube" material="repeat: 1 0; src: #wood_1" position="0.39 5.1 0" scale="1 12 1"> </a-entity>
+ 				<a-entity mixin="cube" material="repeat: 1 0; src: #wood_1" position="-5.58 5.1 0" scale="1 12 1"> </a-entity>
+ 				<a-entity mixin="cube" material="repeat: 0 1; src: #wood_1" position="1.75 10.61 0" scale="24 1 1"> </a-entity>
+ 				<a-entity mixin="cube" material="repeat: 0 1; src: #wood_1" position="-8.08 3.92 0" scale="5 1 1"> </a-entity>
+  			</a-entity>
+
+			<a-entity id="prullenbak" position="1.62 0.12 -1.13" rotation="0 0 0" scale="1 1 1" visible="true">
+				<a-cone color="silver" material="side:front;color:silver" geometry="primitive:cone;radiusTop:1;radiusBottom:0.5;height:2.16" position="0.72 0.78 -0.56" rotation="0 0 0" scale="1 1 1" visible="true"></a-cone>
+				<a-torus color="silver" material="side:front" geometry="primitive:torus;radiusTop:1;radiusBottom:0.5;radius:0.91;radiusTubular:0.05" position="0.72 1.84 -0.56" rotation="90 0 0" scale="1 1 1" visible="true"></a-torus>
+				<a-ring src="#prul" material="" geometry="primitive:ring;segmentsPhi:10;segmentsTheta:20;radiusInner:0.001;radiusOuter:0.8" position="0.72 1.86 -0.57" rotation="-90 0 0"></a-ring>
+			</a-entity>
+
+			<a-entity id='snijplank'>
+				<a-entity mixin="cube" material="src: #wood_3" position="-0.37 3.76 -4" scale="6 0.3 2"> </a-entity>
+			</a-entity>
+
+			<a-entity id='sushimaakplank'>
+				<a-entity mixin="cube" material="src: #wood_3" position="5.11 3.76 -0.25" scale="6 0.3 2.5" rotation="0 90 0"> </a-entity>
+
+				<a-entity id="roll_1" material="visible:true;transparent:true;src:#rieten_matje" geometry="primitive:box;height:0.3;depth:1;width:1" position="5.4 3.79 2" rotation="0 90 0" src="#rieten_matje">
+					<a-entity visible="false" id="zeewier_roll" mixin="cube" src="#nori" material="src: #nori" position="0 0.15 0" scale="0.8 0.01 0.86"> </a-entity>
+					<a-entity visible="false" id="rijst_roll" mixin="cube" src="#rice" material="src: #rice" position="0 0.17 0" scale="0.68 0.05 0.62"> </a-entity>
+					<a-box visible="false" id="toevoeging_1" geometry="primitive:box;height:0.12;width:0.6;depth:0.12" position="0 0.23 -0.01" rotation="0 0 0" scale="1 1 1" src=""></a-box>
+					<a-box visible="false" id="toevoeging_2" geometry="primitive:box;height:0.12;width:0.6;depth:0.12" position="0 0.23 0.11" rotation="0 0 0" scale="1 1 1" src=""></a-box>
+					<a-box visible="false" id="toevoeging_3" geometry="primitive:box;height:0.12;width:0.6;depth:0.12" position="0 0.23 -0.16" rotation="0 0 0" scale="1 1 1" src=""></a-box>
+					<a-box visible="false" id="toevoeging_4" geometry="primitive:box;height:0.12;width:0.6;depth:0.12" position="0 0.23 0.25" rotation="0 0 0" scale="1 1 1" src=""></a-box>
+				</a-entity>
+
+				<a-entity id="roll_2" material="visible:true;transparent:true;src:#rieten_matje" geometry="primitive:box;height:0.3;depth:1;width:1" position="4.7 3.79 0.5" rotation="0 90 0">
+					<a-entity visible="false" id="zeewier_roll" mixin="cube" src="#nori" material="src: #nori" position="0 0.15 0" scale="0.8 0.01 0.86"> </a-entity>
+					<a-entity visible="false" id="rijst_roll" mixin="cube" src="#rice" material="src: #rice" position="0 0.17 0" scale="0.68 0.05 0.62"> </a-entity>
+					<a-box visible="false" id="toevoeging_1" geometry="primitive:box;height:0.12;width:0.6;depth:0.12" position="0 0.23 -0.01" rotation="0 0 0" scale="1 1 1" src=""></a-box>
+					<a-box visible="false" id="toevoeging_2" geometry="primitive:box;height:0.12;width:0.6;depth:0.12" position="0 0.23 0.11" rotation="0 0 0" scale="1 1 1" src=""></a-box>
+					<a-box visible="false" id="toevoeging_3" geometry="primitive:box;height:0.12;width:0.6;depth:0.12" position="0 0.23 -0.16" rotation="0 0 0" scale="1 1 1" src=""></a-box>
+					<a-box visible="false" id="toevoeging_4" geometry="primitive:box;height:0.12;width:0.6;depth:0.12" position="0 0.23 0.25" rotation="0 0 0" scale="1 1 1" src=""></a-box>
+				</a-entity>
+
+				<a-entity id="roll_3" material="visible:true;transparent:true;src:#rieten_matje" geometry="primitive:box;height:0.3;depth:1;width:1" position="5.4 3.79 -1" rotation="0 90 0" scale="1 1 1" visible="true">
+					<a-entity visible="false" id="zeewier_roll" mixin="cube" src="#nori" material="src: #nori" position="0 0.15 0" scale="0.8 0.01 0.86"> </a-entity>
+					<a-entity visible="false" id="rijst_roll" mixin="cube" src="#rice" material="src: #rice" position="0 0.17 0" scale="0.68 0.05 0.62"> </a-entity>
+					<a-box visible="false" id="toevoeging_1" geometry="primitive:box;height:0.12;width:0.6;depth:0.12" position="0 0.23 -0.01" rotation="0 0 0" scale="1 1 1" src=""></a-box>
+					<a-box visible="false" id="toevoeging_2" geometry="primitive:box;height:0.12;width:0.6;depth:0.12" position="0 0.23 0.11" rotation="0 0 0" scale="1 1 1" src=""></a-box>
+					<a-box visible="false" id="toevoeging_3" geometry="primitive:box;height:0.12;width:0.6;depth:0.12" position="0 0.23 -0.16" rotation="0 0 0" scale="1 1 1" src=""></a-box>
+					<a-box visible="false" id="toevoeging_4" geometry="primitive:box;height:0.12;width:0.6;depth:0.12" position="0 0.23 0.25" rotation="0 0 0" scale="1 1 1" src=""></a-box>
+				</a-entity>
+
+				<a-entity id="roll_4" material="visible:true;transparent:true;src:#rieten_matje" geometry="primitive:box;height:0.3;depth:1;width:1" position="4.7 3.79 -2.5" rotation="0 90 0" scale="1 1 1" visible="true">
+					<a-entity visible="false" id="zeewier_roll" mixin="cube" src="#nori" material="src: #nori" position="0 0.15 0" scale="0.8 0.01 0.86"> </a-entity>
+					<a-entity visible="false" id="rijst_roll" mixin="cube" src="#rice" material="src: #rice" position="0 0.17 0" scale="0.68 0.05 0.62"> </a-entity>
+					<a-box visible="false" id="toevoeging_1" geometry="primitive:box;height:0.12;width:0.6;depth:0.12" position="0 0.23 -0.01" rotation="0 0 0" scale="1 1 1" src=""></a-box>
+					<a-box visible="false" id="toevoeging_2" geometry="primitive:box;height:0.12;width:0.6;depth:0.12" position="0 0.23 0.11" rotation="0 0 0" scale="1 1 1" src=""></a-box>
+					<a-box visible="false" id="toevoeging_3" geometry="primitive:box;height:0.12;width:0.6;depth:0.12" position="0 0.23 -0.16" rotation="0 0 0" scale="1 1 1" src=""></a-box>
+					<a-box visible="false" id="toevoeging_4" geometry="primitive:box;height:0.12;width:0.6;depth:0.12" position="0 0.23 0.25" rotation="0 0 0" scale="1 1 1" src=""></a-box>
+				</a-entity>
+
+				<a-entity id="fin_sushiroll_1" position="4.3 4.08 1.92">
+
+					<a-entity id='fin_roll' visible='false' scale="1 1 1">
+						<a-entity id="buitenkant_zeewier" material="src: #nori" mixin="buis" geometry="radius: 0.15" position="0 0 0" rotation="0 90 90"> </a-entity>
+						<a-entity id="binnenkant_rijst" material="src: #rice" mixin="buis" geometry="radius: 0.14" position="0 0 0" rotation="0 90 90" scale="1 1.01 1"> </a-entity>
+						<a-box id="toevoeging_1" visible='false' geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="55 90 89.76" position="0 0 0" ></a-box>
+						<a-box id="toevoeging_2" visible='false' geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="20 90 90" position="0.03 0.03 0"  scale="1 1 1" visible="true"></a-box>
+						<a-box id="toevoeging_3" visible='false' geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="10.899999999999999 90 90" position="-0.03 0.03 0" scale="1 1 1" visible="true"></a-box>
+						<a-box id="toevoeging_4" visible='false' geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="0 90 90" position="0 -0.04 0"  scale="1 1 1" visible="true"></a-box>
+					</a-entity>
+
+					<a-entity id="0" visible='false' scale="1 1 0.25" position="0 0 0.7" rotation="90 0 0">
+							<a-entity id="buitenkant_zeewier" material="src: #nori" mixin="buis" geometry="radius: 0.15" position="0 0 0" rotation="0 90 90"> </a-entity>
+							<a-entity id="binnenkant_rijst" material="src: #rice" mixin="buis" geometry="radius: 0.14" position="0 0 0" rotation="0 90 90" scale="1 1.01 1"> </a-entity>
+							<a-box id="toevoeging_1" visible="false" geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="55 90 89.76" position="0 0 0" material=""></a-box>
+							<a-box id="toevoeging_2" visible="false" geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="20 90 90" position="0.03 0.03 0" scale="1 1 1" material=""></a-box>
+							<a-box id="toevoeging_3" visible="false" geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="10.899999999999999 90 90" position="-0.03 0.03 0" scale="1 1 1" material=""></a-box>
+							<a-box id="toevoeging_4" visible="false" geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="0 90 90" position="0 -0.04 0" scale="1 1 1" material=""></a-box>
+						</a-entity>
+
+						<a-entity id="1" visible='false'  scale="1 1 0.25" position="0.50 0 0.7" rotation="90 0 0">
+							<a-entity id="buitenkant_zeewier" material="src: #nori" mixin="buis" geometry="radius: 0.15" position="0 0 0" rotation="0 90 90"> </a-entity>
+							<a-entity id="binnenkant_rijst" material="src: #rice" mixin="buis" geometry="radius: 0.14" position="0 0 0" rotation="0 90 90" scale="1 1.01 1"> </a-entity>
+							<a-box id="toevoeging_1" visible="false" geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="55 90 89.76" position="0 0 0" material=""></a-box>
+							<a-box id="toevoeging_2" visible="false" geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="20 90 90" position="0.03 0.03 0" scale="1 1 1" material=""></a-box>
+							<a-box id="toevoeging_3" visible="false" geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="10.899999999999999 90 90" position="-0.03 0.03 0" scale="1 1 1" material=""></a-box>
+							<a-box id="toevoeging_4" visible="false" geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="0 90 90" position="0 -0.04 0" scale="1 1 1" material=""></a-box>
+						</a-entity>
+
+						<a-entity id="2" visible='false'  scale="1 1 0.25" position="1 0 0.7" rotation="90 0 0">
+							<a-entity id="buitenkant_zeewier" material="src: #nori" mixin="buis" geometry="radius: 0.15" position="0 0 0" rotation="0 90 90"> </a-entity>
+							<a-entity id="binnenkant_rijst" material="src: #rice" mixin="buis" geometry="radius: 0.14" position="0 0 0" rotation="0 90 90" scale="1 1.01 1"> </a-entity>
+							<a-box id="toevoeging_1" visible="false" geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="55 90 89.76" position="0 0 0" material=""></a-box>
+							<a-box id="toevoeging_2" visible="false" geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="20 90 90" position="0.03 0.03 0" scale="1 1 1" material=""></a-box>
+							<a-box id="toevoeging_3" visible="false" geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="10.899999999999999 90 90" position="-0.03 0.03 0" scale="1 1 1" material=""></a-box>
+							<a-box id="toevoeging_4" visible="false" geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="0 90 90" position="0 -0.04 0" scale="1 1 1" material=""></a-box>
+						</a-entity>
+
+						<a-entity id="3" visible='false'  scale="1 1 0.25" position="1.50 0 0.7" rotation="90 0 0">
+							<a-entity id="buitenkant_zeewier" material="src: #nori" mixin="buis" geometry="radius: 0.15" position="0 0 0" rotation="0 90 90"> </a-entity>
+							<a-entity id="binnenkant_rijst" material="src: #rice" mixin="buis" geometry="radius: 0.14" position="0 0 0" rotation="0 90 90" scale="1 1.01 1"> </a-entity>
+							<a-box id="toevoeging_1" visible="false" geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="55 90 89.76" position="0 0 0" material=""></a-box>
+							<a-box id="toevoeging_2" visible="false" geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="20 90 90" position="0.03 0.03 0" scale="1 1 1" material=""></a-box>
+							<a-box id="toevoeging_3" visible="false" geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="10.899999999999999 90 90" position="-0.03 0.03 0" scale="1 1 1" material=""></a-box>
+							<a-box id="toevoeging_4" visible="false" geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="0 90 90" position="0 -0.04 0" scale="1 1 1" material=""></a-box>
+						</a-entity>
+				</a-entity>
+
+				<a-entity id="fin_sushiroll_2"  position="5.77 4.08 0.53">
+						<a-entity id='fin_roll' visible='false' scale="1 1 1">
+						<a-entity id="buitenkant_zeewier" material="src: #nori" mixin="buis" geometry="radius: 0.15" position="0 0 0" rotation="0 90 90"> </a-entity>
+						<a-entity id="binnenkant_rijst" material="src: #rice" mixin="buis" geometry="radius: 0.14" position="0 0 0" rotation="0 90 90" scale="1 1.01 1"> </a-entity>
+						<a-box id="toevoeging_1" visible='false' geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="55 90 89.76" position="0 0 0" ></a-box>
+						<a-box id="toevoeging_2" visible='false' geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="20 90 90" position="0.03 0.03 0" scale="1 1 1" visible="true"></a-box>
+						<a-box id="toevoeging_3" visible='false' geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="10.899999999999999 90 90" position="-0.03 0.03 0"  scale="1 1 1" visible="true"></a-box>
+						<a-box id="toevoeging_4" visible='false' geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="0 90 90" position="0 -0.04 0"  scale="1 1 1" visible="true"></a-box>
+						</a-entity>
+
+						<a-entity id="0" visible='false'  scale="1 1 0.25" position="0 0 0.7" rotation="90 0 0">
+							<a-entity id="buitenkant_zeewier" material="src: #nori" mixin="buis" geometry="radius: 0.15" position="0 0 0" rotation="0 90 90"> </a-entity>
+							<a-entity id="binnenkant_rijst" material="src: #rice" mixin="buis" geometry="radius: 0.14" position="0 0 0" rotation="0 90 90" scale="1 1.01 1"> </a-entity>
+							<a-box id="toevoeging_1" visible="false" geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="55 90 89.76" position="0 0 0" material=""></a-box>
+							<a-box id="toevoeging_2" visible="false" geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="20 90 90" position="0.03 0.03 0" scale="1 1 1" material=""></a-box>
+							<a-box id="toevoeging_3" visible="false" geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="10.899999999999999 90 90" position="-0.03 0.03 0" scale="1 1 1" material=""></a-box>
+							<a-box id="toevoeging_4" visible="false" geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="0 90 90" position="0 -0.04 0" scale="1 1 1" material=""></a-box>
+						</a-entity>
+						<a-entity id="1" visible='false'  scale="1 1 0.25" position="-0.50 0 0.7" rotation="90 0 0">
+							<a-entity id="buitenkant_zeewier" material="src: #nori" mixin="buis" geometry="radius: 0.15" position="0 0 0" rotation="0 90 90"> </a-entity>
+							<a-entity id="binnenkant_rijst" material="src: #rice" mixin="buis" geometry="radius: 0.14" position="0 0 0" rotation="0 90 90" scale="1 1.01 1"> </a-entity>
+							<a-box id="toevoeging_1" visible="false" geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="55 90 89.76" position="0 0 0" material=""></a-box>
+							<a-box id="toevoeging_2" visible="false" geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="20 90 90" position="0.03 0.03 0" scale="1 1 1" material=""></a-box>
+							<a-box id="toevoeging_3" visible="false" geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="10.899999999999999 90 90" position="-0.03 0.03 0" scale="1 1 1" material=""></a-box>
+							<a-box id="toevoeging_4" visible="false" geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="0 90 90" position="0 -0.04 0" scale="1 1 1" material=""></a-box>
+						</a-entity>
+						<a-entity id="2" visible='false'  scale="1 1 0.25" position="-1 0 0.7" rotation="90 0 0">
+							<a-entity id="buitenkant_zeewier" material="src: #nori" mixin="buis" geometry="radius: 0.15" position="0 0 0" rotation="0 90 90"> </a-entity>
+							<a-entity id="binnenkant_rijst" material="src: #rice" mixin="buis" geometry="radius: 0.14" position="0 0 0" rotation="0 90 90" scale="1 1.01 1"> </a-entity>
+							<a-box id="toevoeging_1" visible="false" geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="55 90 89.76" position="0 0 0" material=""></a-box>
+							<a-box id="toevoeging_2" visible="false" geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="20 90 90" position="0.03 0.03 0" scale="1 1 1" material=""></a-box>
+							<a-box id="toevoeging_3" visible="false" geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="10.899999999999999 90 90" position="-0.03 0.03 0" scale="1 1 1" material=""></a-box>
+							<a-box id="toevoeging_4" visible="false" geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="0 90 90" position="0 -0.04 0" scale="1 1 1" material=""></a-box>
+						</a-entity>
+						<a-entity id="3" visible='false'  scale="1 1 0.25" position="-1.50 0 0.7" rotation="90 0 0">
+							<a-entity id="buitenkant_zeewier" material="src: #nori" mixin="buis" geometry="radius: 0.15" position="0 0 0" rotation="0 90 90"> </a-entity>
+							<a-entity id="binnenkant_rijst" material="src: #rice" mixin="buis" geometry="radius: 0.14" position="0 0 0" rotation="0 90 90" scale="1 1.01 1"> </a-entity>
+							<a-box id="toevoeging_1" visible="false" geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="55 90 89.76" position="0 0 0" material=""></a-box>
+							<a-box id="toevoeging_2" visible="false" geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="20 90 90" position="0.03 0.03 0" scale="1 1 1" material=""></a-box>
+							<a-box id="toevoeging_3" visible="false" geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="10.899999999999999 90 90" position="-0.03 0.03 0" scale="1 1 1" material=""></a-box>
+							<a-box id="toevoeging_4" visible="false" geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="0 90 90" position="0 -0.04 0" scale="1 1 1" material=""></a-box>
+						</a-entity>
+				</a-entity>
+
+				<a-entity id="fin_sushiroll_3"  position="4.36 4.08 -1.02">
+						<a-entity id='fin_roll' visible='false' scale="1 1 1">
+						<a-entity id="buitenkant_zeewier" material="src: #nori" mixin="buis" geometry="radius: 0.15" position="0 0 0" rotation="0 90 90"> </a-entity>
+						<a-entity id="binnenkant_rijst" material="src: #rice" mixin="buis" geometry="radius: 0.14" position="0 0 0" rotation="0 90 90" scale="1 1.01 1"> </a-entity>
+						<a-box id="toevoeging_1" visible='false' geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="55 90 89.76" position="0 0 0" ></a-box>
+						<a-box id="toevoeging_2" visible='false' geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="20 90 90" position="0.03 0.03 0"  scale="1 1 1" visible="true"></a-box>
+						<a-box id="toevoeging_3" visible='false' geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="10.899999999999999 90 90" position="-0.03 0.03 0"  scale="1 1 1" visible="true"></a-box>
+						<a-box id="toevoeging_4" visible='false' geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="0 90 90" position="0 -0.04 0"  scale="1 1 1" visible="true"></a-box>
+					</a-entity>
+					<a-entity id="0" visible='false' scale="1 1 0.25" position="0 0 0.7" rotation="90 0 0">
+						<a-entity id="buitenkant_zeewier" material="src: #nori" mixin="buis" geometry="radius: 0.15" position="0 0 0" rotation="0 90 90"> </a-entity>
+						<a-entity id="binnenkant_rijst" material="src: #rice" mixin="buis" geometry="radius: 0.14" position="0 0 0" rotation="0 90 90" scale="1 1.01 1"> </a-entity>
+							<a-box id="toevoeging_1" visible="false" geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="55 90 89.76" position="0 0 0" material=""></a-box>
+							<a-box id="toevoeging_2" visible="false" geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="20 90 90" position="0.03 0.03 0" scale="1 1 1" material=""></a-box>
+							<a-box id="toevoeging_3" visible="false" geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="10.899999999999999 90 90" position="-0.03 0.03 0" scale="1 1 1" material=""></a-box>
+							<a-box id="toevoeging_4" visible="false" geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="0 90 90" position="0 -0.04 0" scale="1 1 1" material=""></a-box>
+						</a-entity>
+						<a-entity id="1" visible='false'  scale="1 1 0.25" position="0.50 0 0.7" rotation="90 0 0">
+							<a-entity id="buitenkant_zeewier" material="src: #nori" mixin="buis" geometry="radius: 0.15" position="0 0 0" rotation="0 90 90"> </a-entity>
+							<a-entity id="binnenkant_rijst" material="src: #rice" mixin="buis" geometry="radius: 0.14" position="0 0 0" rotation="0 90 90" scale="1 1.01 1"> </a-entity>
+							<a-box id="toevoeging_1" visible="false" geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="55 90 89.76" position="0 0 0" material=""></a-box>
+							<a-box id="toevoeging_2" visible="false" geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="20 90 90" position="0.03 0.03 0" scale="1 1 1" material=""></a-box>
+							<a-box id="toevoeging_3" visible="false" geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="10.899999999999999 90 90" position="-0.03 0.03 0" scale="1 1 1" material=""></a-box>
+							<a-box id="toevoeging_4" visible="false" geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="0 90 90" position="0 -0.04 0" scale="1 1 1" material=""></a-box>
+						</a-entity>
+						<a-entity id="2" visible='false'  scale="1 1 0.25" position="1 0 0.7" rotation="90 0 0">
+							<a-entity id="buitenkant_zeewier" material="src: #nori" mixin="buis" geometry="radius: 0.15" position="0 0 0" rotation="0 90 90"> </a-entity>
+							<a-entity id="binnenkant_rijst" material="src: #rice" mixin="buis" geometry="radius: 0.14" position="0 0 0" rotation="0 90 90" scale="1 1.01 1"> </a-entity>
+							<a-box id="toevoeging_1" visible="false" geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="55 90 89.76" position="0 0 0" material=""></a-box>
+							<a-box id="toevoeging_2" visible="false" geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="20 90 90" position="0.03 0.03 0" scale="1 1 1" material=""></a-box>
+							<a-box id="toevoeging_3" visible="false" geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="10.899999999999999 90 90" position="-0.03 0.03 0" scale="1 1 1" material=""></a-box>
+							<a-box id="toevoeging_4" visible="false" geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="0 90 90" position="0 -0.04 0" scale="1 1 1" material=""></a-box>
+						</a-entity>
+						<a-entity id="3" visible='false'  scale="1 1 0.25" position="1.50 0 0.7" rotation="90 0 0">
+							<a-entity id="buitenkant_zeewier" material="src: #nori" mixin="buis" geometry="radius: 0.15" position="0 0 0" rotation="0 90 90"> </a-entity>
+							<a-entity id="binnenkant_rijst" material="src: #rice" mixin="buis" geometry="radius: 0.14" position="0 0 0" rotation="0 90 90" scale="1 1.01 1"> </a-entity>
+							<a-box id="toevoeging_1" visible="false" geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="55 90 89.76" position="0 0 0" material=""></a-box>
+							<a-box id="toevoeging_2" visible="false" geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="20 90 90" position="0.03 0.03 0" scale="1 1 1" material=""></a-box>
+							<a-box id="toevoeging_3" visible="false" geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="10.899999999999999 90 90" position="-0.03 0.03 0" scale="1 1 1" material=""></a-box>
+							<a-box id="toevoeging_4" visible="false" geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="0 90 90" position="0 -0.04 0" scale="1 1 1" material=""></a-box>
+						</a-entity>
+				</a-entity>
+
+				<a-entity id="fin_sushiroll_4"  position="5.74 4.08 -2.53">
+					<a-entity id='fin_roll' visible='false' scale="1 1 1">
+						<a-entity id="buitenkant_zeewier" material="src: #nori" mixin="buis" geometry="radius: 0.15" position="0 0 0" rotation="0 90 90"> </a-entity>
+						<a-entity id="binnenkant_rijst" material="src: #rice" mixin="buis" geometry="radius: 0.14" position="0 0 0" rotation="0 90 90" scale="1 1.01 1"> </a-entity>
+						<a-box id="toevoeging_1" visible='false' geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="55 90 89.76" position="0 0 0" ></a-box>
+						<a-box id="toevoeging_2" visible='false' geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="20 90 90" position="0.03 0.03 0"  scale="1 1 1" visible="true"></a-box>
+						<a-box id="toevoeging_3" visible='false' geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="10.899999999999999 90 90" position="-0.03 0.03 0" scale="1 1 1" visible="true"></a-box>
+						<a-box id="toevoeging_4" visible='false' geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="0 90 90" position="0 -0.04 0"  scale="1 1 1" visible="true"></a-box>
+					</a-entity>
+					<a-entity id="0" visible='false'  scale="1 1 0.25" position="0 0 0.7" rotation="90 0 0">
+						<a-entity id="buitenkant_zeewier" material="src: #nori" mixin="buis" geometry="radius: 0.15" position="0 0 0" rotation="0 90 90"> </a-entity>
+						<a-entity id="binnenkant_rijst" material="src: #rice" mixin="buis" geometry="radius: 0.14" position="0 0 0" rotation="0 90 90" scale="1 1.01 1"> </a-entity>
+						<a-box id="toevoeging_1" visible="false" geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="55 90 89.76" position="0 0 0" material=""></a-box>
+						<a-box id="toevoeging_2" visible="false" geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="20 90 90" position="0.03 0.03 0" scale="1 1 1" material=""></a-box>
+						<a-box id="toevoeging_3" visible="false" geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="10.899999999999999 90 90" position="-0.03 0.03 0" scale="1 1 1" material=""></a-box>
+						<a-box id="toevoeging_4" visible="false" geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="0 90 90" position="0 -0.04 0" scale="1 1 1" material=""></a-box>
+					</a-entity>
+					<a-entity id="1" visible='false'  scale="1 1 0.25" position="-0.50 0 0.7" rotation="90 0 0">
+						<a-entity id="buitenkant_zeewier" material="src: #nori" mixin="buis" geometry="radius: 0.15" position="0 0 0" rotation="0 90 90"> </a-entity>
+						<a-entity id="binnenkant_rijst" material="src: #rice" mixin="buis" geometry="radius: 0.14" position="0 0 0" rotation="0 90 90" scale="1 1.01 1"> </a-entity>
+						<a-box id="toevoeging_1" visible="false" geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="55 90 89.76" position="0 0 0" material=""></a-box>
+						<a-box id="toevoeging_2" visible="false" geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="20 90 90" position="0.03 0.03 0" scale="1 1 1" material=""></a-box>
+						<a-box id="toevoeging_3" visible="false" geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="10.899999999999999 90 90" position="-0.03 0.03 0" scale="1 1 1" material=""></a-box>
+						<a-box id="toevoeging_4" visible="false" geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="0 90 90" position="0 -0.04 0" scale="1 1 1" material=""></a-box>
+					</a-entity>
+					<a-entity id="2" visible='false'  scale="1 1 0.25" position="-1 0 0.7" rotation="90 0 0">
+						<a-entity id="buitenkant_zeewier" material="src: #nori" mixin="buis" geometry="radius: 0.15" position="0 0 0" rotation="0 90 90"> </a-entity>
+						<a-entity id="binnenkant_rijst" material="src: #rice" mixin="buis" geometry="radius: 0.14" position="0 0 0" rotation="0 90 90" scale="1 1.01 1"> </a-entity>
+						<a-box id="toevoeging_1" visible="false" geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="55 90 89.76" position="0 0 0" material=""></a-box>
+						<a-box id="toevoeging_2" visible="false" geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="20 90 90" position="0.03 0.03 0" scale="1 1 1" material=""></a-box>
+						<a-box id="toevoeging_3" visible="false" geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="10.899999999999999 90 90" position="-0.03 0.03 0" scale="1 1 1" material=""></a-box>
+						<a-box id="toevoeging_4" visible="false" geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="0 90 90" position="0 -0.04 0" scale="1 1 1" material=""></a-box>
+					</a-entity>
+					<a-entity id="3" visible='false'  scale="1 1 0.25" position="-1.50 0 0.7" rotation="90 0 0">
+						<a-entity id="buitenkant_zeewier" material="src: #nori" mixin="buis" geometry="radius: 0.15" position="0 0 0" rotation="0 90 90"> </a-entity>
+						<a-entity id="binnenkant_rijst" material="src: #rice" mixin="buis" geometry="radius: 0.14" position="0 0 0" rotation="0 90 90" scale="1 1.01 1"> </a-entity>
+						<a-box id="toevoeging_1" visible="false" geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="55 90 89.76" position="0 0 0" material=""></a-box>
+						<a-box id="toevoeging_2" visible="false" geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="20 90 90" position="0.03 0.03 0" scale="1 1 1" material=""></a-box>
+						<a-box id="toevoeging_3" visible="false" geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="10.899999999999999 90 90" position="-0.03 0.03 0" scale="1 1 1" material=""></a-box>
+						<a-box id="toevoeging_4" visible="false" geometry="primitive:cylinder;radius:0.03;height:1.02;segmentsRadial:5" rotation="0 90 90" position="0 -0.04 0" scale="1 1 1" material=""></a-box>
+					</a-entity>
+				</a-entity>
+			</a-entity>
+
+			<a-entity id='resultaatplank'>
+				<a-entity mixin="cube" material="src: #wood_2" position="4.77 3.93 -4.86" scale="3 0.3 2"> </a-entity>
+			</a-entity>
+
+			<a-entity id="knife" scale="0.5 0.5 0.5" position="-4.12 4.45 0" rotation="-55 90 0">
+				<a-entity id="handel" material="src: #wood_1" mixin="buis" geometry="radius: 0.2" position="0 2.19 2.26" rotation="90 0 0" scale="1 2 1"> </a-entity>
+				<a-entity id="blade" mixin="gray cube" position="0 2.01 0" scale="0.1 0.8 4"> </a-entity>
+				<a-entity id="sharp_pt1" mixin="gray buis" geometry="width: 01; height: 0.1; depth: 0.57; radius: 0.3" position="0 1.97 -1.95" rotation="90 90 0" scale="2 1 1.2"> </a-entity>
+				<a-entity id="sharp_pt2" mixin="gray cube" position="0 2.21 -1.9" scale="0.1 0.4 1"> </a-entity>
+				<a-entity id="sharp_pt3" mixin="gray cube" position="0 2.07 -2.4" scale="0.1 0.48 0.48" rotation="45 0 0"> </a-entity>
+			</a-entity>
+
+			<a-entity id="messenblok">
+				<a-entity mixin="cube" material="src: #wood_2" position="-5.46 4.23 0" scale="0.7 1.5 0.5" rotation="0 0 -30"> </a-entity>
+				<a-entity mixin="cube" material="src: #wood_2" position="-5.13 4.08 0" scale="0.7 1.3 0.5"> </a-entity>
+			</a-entity>
+
+			<a-entity id="komkommer" position="-0.66 2.51 -5.71" rotation="0 90 0">
+				<a-cylinder material="" color="green" geometry="primitive:cylinder;height:2;radius:0.3;thetaStart:0;thetaLength:360;segmentsRadial:8;segmentsHeight:18" position="0 1.43 0" rotation="90 0 0"> </a-cylinder>
+				<a-entity mixin="green bal" position="0 1.45 1.02"> </a-entity>
+				<a-entity mixin="green bal" position="0 1.45 -0.99"> </a-entity>
+				<a-cylinder material="" color="green" geometry="primitive:cylinder;height:1;radius:0.05;segmentsRadial:5;segmentsHeight:5" position="0 1.4 -0.83" rotation="90 0 0"> </a-cylinder>
+			</a-entity>
+
+			<a-entity id="kom_rijst" position="-5.86 2.64 -1.14">
+				<a-cone color="silver" material="side:front" geometry="primitive:cone;radiusTop:1;radiusBottom:0.5" position="0.72 1.31 -0.56"></a-cone>
+				<a-torus color="silver" material="side:front" geometry="primitive:torus;radiusTop:1;radiusBottom:0.5;radius:0.91;radiusTubular:0.05" position="0.72 1.84 -0.56" rotation="90 0 0" scale="1 1 1" visible="true"></a-torus>
+				<a-ring src="#rice" material="" geometry="primitive:ring;segmentsPhi:10;segmentsTheta:20;radiusInner:0.001;radiusOuter:0.8" position="0.72 1.86 -0.57" rotation="-90 0 0"></a-ring>
+			</a-entity>
+
+			<a-entity id="zeewier" position="-3.58 3.82 -1.64">
+				<a-entity id="plakje_1" mixin="cube" material="src: #nori" position="0 0 0" scale="0.8 0.01 0.86"> </a-entity>
+				<a-entity id="plakje_2" mixin="cube" material="src: #nori" position="0 0.01 0" scale="0.8 0.01 0.86" rotation="0 14.7 0"> </a-entity>
+				<a-entity id="plakje_3" mixin="cube" material="src: #nori" position="0 0.06 0" scale="0.8 0.01 0.86" rotation="0 27.4 0"> </a-entity>
+			</a-entity>
+
+			<a-entity id="avocado" obj-model="obj:#avocado-obj;mtl:#avocado-mtl" position="2.62 4.2 -5.78" scale="0.5 0.5 0.5" material="" rotation="-90 90 0"> </a-entity>
+
+			<!-- Furniture -->
+			<a-obj-model id="customTafel" src="#tafel-obj" position="-2.5 2 -3" scale="1.8 1.8 1.8" material="color: #705d49" rotation="0 90 0"> </a-obj-model>
+			<a-obj-model id="customTafel-2" src="#tafel-obj" position="-6.1 2 -2.27" scale="1.8 1.8 1.8" material="color: #705d49" rotation="0 0 0" visible="true"> </a-obj-model>
+			<a-obj-model id="customTafel-3" src="#tafel-obj" position="3.62 2 -2.29" scale="1.8 1.8 1.8" material="color: #705d49" rotation="0 0 0" visible="true"> </a-obj-model>
+			<a-entity id="tafel_ext" mixin="cube" material="color: #705d49" position="-4.66 3.54 -4.44" scale="3.61 0.55 3.61"> </a-entity>
+			<a-entity id="tafel_ext" mixin="cube" material="color: #705d49" position="5.06 3.54 -4.44" scale="3.61 0.55 3.61"> </a-entity>
+
+			<a-entity mixin="bord" position="0 9 -10.4" material="src: #wood_1"> </a-entity>
+			<a-entity id="stappenplan11" material='' geometry="width:25;primitive:plane;height:0.98;depth:0;mergeTo:null" position="-0.5 14 -10.3" scale="0.7 1 1" material="color: white"> </a-entity>
+			<a-entity id="stappenplan10" material='' geometry="width:25;primitive:plane;height:0.98;depth:0;mergeTo:null" position="-0.5 13 -10.3" scale="0.7 1 1" material="color: white"> </a-entity>
+			<a-entity id="stappenplan9"  material='' geometry="width:25;primitive:plane;height:0.98;depth:0;mergeTo:null" position="-0.5 12 -10.3" scale="0.7 1 1" material="color: white"> </a-entity>
+			<a-entity id="stappenplan8"  material='' geometry="width:25;primitive:plane;height:0.98;depth:0;mergeTo:null" position="-0.5 11 -10.3" scale="0.7 1 1" material="color: white"> </a-entity>
+			<a-entity id="stappenplan7"  material='' geometry="width:25;primitive:plane;height:0.98;depth:0;mergeTo:null" position="-0.5 10 -10.3" scale="0.7 1 1" material="color: white"> </a-entity>
+			<a-entity id="stappenplan6"  material='' geometry="width:25;primitive:plane;height:0.98;depth:0;mergeTo:null" position="-0.5 9 -10.3" scale="0.7 1 1" material="color: white"> </a-entity>
+			<a-entity id="stappenplan5"  material='' geometry="width:25;primitive:plane;height:0.98;depth:0;mergeTo:null" position="-0.5 8 -10.3" scale="0.7 1 1" material="color: white"> </a-entity>
+			<a-entity id="stappenplan4"  material='' geometry="width:25;primitive:plane;height:0.98;depth:0;mergeTo:null" position="-0.5 7 -10.3" scale="0.7 1 1" material="color: white"> </a-entity>
+			<a-entity id="stappenplan3"  material='' geometry="width:25;primitive:plane;height:0.98;depth:0;mergeTo:null" position="-0.5 6 -10.3" scale="0.7 1 1" material="color: white"> </a-entity>
+			<a-entity id="stappenplan2"  material='' geometry="width:25;primitive:plane;height:0.98;depth:0;mergeTo:null" position="-0.5 5 -10.3" scale="0.7 1 1" material="color: white"> </a-entity>
+			<a-entity id="stappenplan1"  material='' geometry="width:25;primitive:plane;height:0.98;depth:0;mergeTo:null" position="-0.5 4 -10.3" scale="0.7 1 1" material="color: white"> </a-entity>
+
+			<a-entity id="sushi_ongesneden" position="-4.93 3.96 -4.32" rotation="0 90 0">
+				<a-entity id="salmon" mixin="cube" material="src: #zalm" position="0 0 0.41" scale="2 0.25 0.8"> </a-entity>
+				<a-entity id="tuna" mixin="cube" material="src: #tonijn" position="0 0 -0.5" scale="2 0.75 0.8"> </a-entity>
+			</a-entity>
+
+			<a-entity id="zalm_gesneden" position="-2.15 3.96 -4.71" rotation="0 90 0">	</a-entity>
+			<a-entity id="tonijn_gesneden" position="-2.81 3.96 -4.71" rotation="0 90 0"> </a-entity>
+			<a-entity id='komkommer_gesneden' position="-1 3.96 -4.71" rotation="0 90 0"> </a-entity>
+			<a-entity id="gesneden_avocado" position="1.46 3.57 -4.21" scale="0.3 0.3 0.3"> </a-entity>
+		</a-scene>
+	</body>
+</html>
